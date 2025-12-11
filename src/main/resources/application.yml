@@ -1,22 +1,6 @@
 spring:
-  cloud:
-    gateway:
-      routes:
-        # Route 1 : /clients → backend 8088
-        - id: clients_route
-          uri: http://localhost:8088
-          predicates:
-            - Path=/clients/**
+  application:
+    name: api-gateway
 
-        # Route 2 : /client/{id} → backend 8088
-        - id: client_route
-          uri: http://localhost:8088
-          predicates:
-            - Path=/client/**
-#spring:
- # cloud:
-  #  gateway:
-   #   discovery:
-    #    locator:
-     #     enabled: true
-
+  config:
+    import: "configserver:http://localhost:8888"
