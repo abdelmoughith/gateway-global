@@ -18,6 +18,16 @@ public class JwtGatewayFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+
+        String path = exchange.getRequest().getURI().getPath();
+
+        // 🔓 Allow Swagger & OpenAPI
+        if (path.startsWith("/swagger-ui")
+                || path.startsWith("/v3/api-docs")
+                || path.contains("/v3/api-docs")) {
+            return chain.filter(exchange);
+        }
+
         var authHeader = exchange.getRequest().getHeaders().getFirst("Authorization");
         if(authHeader != null && authHeader.startsWith("Bearer ")) {
             var token = authHeader.substring(7);
