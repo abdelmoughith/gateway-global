@@ -10,7 +10,7 @@ public class TestController {
 
     @GetMapping("/ping")
     public Mono<String> ping() {
-        return Mono.just("Gateway is alive 🚀");
+        return Mono.just("Gateway is alive 🚀, with PIPELINE");
     }
 }
 
