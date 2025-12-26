@@ -12,10 +12,12 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-@RequiredArgsConstructor
 public class JwtAuthenticationManager implements AuthenticationManager {
 
     private final JwtUtils jwtUtils;
+    public JwtAuthenticationManager(JwtUtils jwtUtils) {
+        this.jwtUtils = jwtUtils;
+    }
 
     @Override
     public Authentication authenticate(Authentication authentication) {
