@@ -24,6 +24,8 @@ public class SecurityConfig {
                 "http://localhost:3000",  // alternative port dev
                 "http://10.80.65.69:5173", // local network dev
                 "http://10.80.65.69:3000", // local network dev
+                "http://172.18.0.7:5173", // local network dev
+                "http://172.18.0.7:3000", // local network dev
                 "http://moughit.site",     // production HTTP
                 "https://moughit.site"     // production HTTPS
         ));
