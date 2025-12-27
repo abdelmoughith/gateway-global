@@ -20,11 +20,14 @@ public class SecurityConfig {
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(
-                "http://localhost:5173",
-                "http://localhost:3000",
-                "http://10.80.65.69:5173",
-                "http://10.80.65.69:3000"
+                "http://localhost:5173",  // React dev server
+                "http://localhost:3000",  // alternative port dev
+                "http://10.80.65.69:5173", // local network dev
+                "http://10.80.65.69:3000", // local network dev
+                "http://moughit.site",     // production HTTP
+                "https://moughit.site"     // production HTTPS
         ));
+
         config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
